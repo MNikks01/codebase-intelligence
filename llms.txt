@@ -1,0 +1,38 @@
+# Codebase Intelligence Platform
+
+> Production RAG-over-code engine: connect a repo, get semantic+lexical search, grounded Q&A with file:line citations, living auto-docs, architecture diagrams, and impact/blast-radius analysis — exposed via REST API and MCP server. Project #2 (core engine) of the AI Startup Lab; reused by ContextOS (#1) and System Design Assistant (#6). Spec-first; no app code yet.
+
+## Core
+- [README](./README.md): What/why/how + capability ladder
+- [VISION](./VISION.md): Best code-understanding engine; reusable infrastructure
+- [PROBLEM](./PROBLEM.md): Codebases too big to understand; shallow tools
+- [CUSTOMERS](./CUSTOMERS.md): Teams, agencies, enterprise, API/agent builders
+- [FEATURES](./FEATURES.md): MVP→V3
+- [USER_STORIES](./USER_STORIES.md): 100+ stories
+
+## Engineering
+- [ARCHITECTURE](./ARCHITECTURE.md): Ingestion/search/graph services (Mermaid)
+- [TECH_STACK](./TECH_STACK.md): + tree-sitter, symbol graph, rerank, Shiki, Mermaid
+- [DATABASE](./DATABASE.md): chunks/embeddings/symbols/symbol_edges; ERD; impact CTE
+- [API_DESIGN](./API_DESIGN.md): REST + MCP (engine-as-a-service)
+- [AI_ARCHITECTURE](./AI_ARCHITECTURE.md): models/embeddings/retrieval/graph/evals
+- [RAG](./RAG.md): THE moat — AST chunk → hybrid+graph retrieve → rerank → cite
+- [MCP](./MCP.md): MCP server (search_code/ask_codebase/impact_of/...)
+- [AGENT_DESIGN](./AGENT_DESIGN.md): read-only Q&A + PR-review agents
+
+## Production
+- [SECURITY](./SECURITY.md) (code privacy, secret redaction, D-010), [OBSERVABILITY](./OBSERVABILITY.md), [GUARDRAILS](./GUARDRAILS.md) (anti-hallucination), [DEVOPS](./DEVOPS.md)
+
+## Execution
+- [TASKS](./TASKS.md), [SPRINTS](./SPRINTS.md) (MVP ≈10 weeks)
+
+## Business
+- [PRICING](./PRICING.md) (+ usage-based API tier), [GTM](./GTM.md) (public OSS-repo demo), [SALES](./SALES.md), [RISKS](./RISKS.md), [HIRING](./HIRING.md), [OPEN_SOURCE](./OPEN_SOURCE.md), [RESUME_VALUE](./RESUME_VALUE.md)
+
+## For agents
+- [CLAUDE.md](./CLAUDE.md), [AGENTS.md](./AGENTS.md), [mcp.json](./mcp.json)
+
+## Key decisions (../DECISION_LOG.md)
+- D-001 no model training · D-003 Claude+abstraction · D-004 Postgres+pgvector · D-010 code never trains a model
+## Differentiator
+Accuracy via AST chunking + symbol-graph RAG + re-ranking + published evals.

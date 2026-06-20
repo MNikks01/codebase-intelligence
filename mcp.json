@@ -1,0 +1,27 @@
+{
+  "$comment": "Codebase Intelligence MCP config template. 'codebase-intel' exposes the code-understanding engine to any MCP host (Claude Desktop, Cursor, Claude Code) or agent. Replace ${VARS} with secrets from your environment/secret manager — never commit real tokens.",
+  "mcpServers": {
+    "codebase-intel": {
+      "url": "https://api.codebase-intel.dev/mcp",
+      "transport": "streamable-http",
+      "headers": {
+        "Authorization": "Bearer ${CI_API_KEY}",
+        "X-Repo-Id": "${REPO_ID}"
+      },
+      "description": "Ask grounded questions about a codebase, search code, and analyze change impact.",
+      "tools": [
+        "search_code",
+        "ask_codebase",
+        "impact_of",
+        "get_symbol_context",
+        "get_repo_summary"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}" },
+      "description": "Optional: enrich answers with PR/issue/blame history."
+    }
+  }
+}
