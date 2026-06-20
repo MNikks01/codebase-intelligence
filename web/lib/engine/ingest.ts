@@ -1,8 +1,11 @@
+// GENERATED from engine/src/ingest.ts — DO NOT EDIT.
+// Single source of truth: engine/src. Regenerate: node engine/scripts/sync-to-web.mjs
+
 // Repo ingestion: walk a directory, read code/doc files, skip junk. No network.
 
 import { readdir, readFile, stat } from "node:fs/promises";
 import { join, relative, extname } from "node:path";
-import type { FileDoc } from "./types.ts";
+import type { FileDoc } from "./types";
 
 const SKIP_DIRS = new Set([
   "node_modules",

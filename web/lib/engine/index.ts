@@ -1,16 +1,19 @@
+// GENERATED from engine/src/index.ts — DO NOT EDIT.
+// Single source of truth: engine/src. Regenerate: node engine/scripts/sync-to-web.mjs
+
 // Codebase Intelligence engine — index a repo, then search / ask with citations.
 // Hybrid retrieval (vector + lexical), zero-network by default.
 
-import { ingestDir } from "./ingest.ts";
-import { chunkAll } from "./chunk.ts";
-import { pickEmbedder, type EmbeddingProvider } from "./embed.ts";
-import { VectorIndex } from "./store.ts";
-import { LexicalIndex } from "./lexical.ts";
-import { rrfFuse } from "./retrieve.ts";
-import { rerank } from "./rerank.ts";
-import { buildImportGraph, type ImportGraph } from "./graph.ts";
-import { pickAnswerProvider } from "./answer.ts";
-import type { Chunk, FileDoc, QueryResult, ScoredChunk } from "./types.ts";
+import { ingestDir } from "./ingest";
+import { chunkAll } from "./chunk";
+import { pickEmbedder, type EmbeddingProvider } from "./embed";
+import { VectorIndex } from "./store";
+import { LexicalIndex } from "./lexical";
+import { rrfFuse } from "./retrieve";
+import { rerank } from "./rerank";
+import { buildImportGraph, type ImportGraph } from "./graph";
+import { pickAnswerProvider } from "./answer";
+import type { Chunk, FileDoc, QueryResult, ScoredChunk } from "./types";
 
 export class CodebaseIndex {
   private vec = new VectorIndex();
@@ -92,4 +95,4 @@ export class CodebaseIndex {
   }
 }
 
-export type { QueryResult, ScoredChunk } from "./types.ts";
+export type { QueryResult, ScoredChunk } from "./types";
