@@ -1,0 +1,17 @@
+{
+  "name": "codebase-intel-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server exposing the Codebase Intelligence engine — search_code, ask_codebase, get_related_files — so any MCP host (Claude Desktop, Cursor, agents) can query a codebase.",
+  "bin": { "codebase-intel-mcp": "src/server.ts" },
+  "scripts": {
+    "start": "node src/server.ts",
+    "smoke": "node scripts/smoke.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.0"
+  },
+  "engines": { "node": ">=22.18" }
+}
