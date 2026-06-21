@@ -81,15 +81,15 @@ export default function Home() {
       <section className="mt-8">
         <h2 className="text-sm font-medium">1. Index a repo</h2>
         <div className="mt-2 flex flex-wrap items-center gap-3">
-          <button
+          <button type="button"
             onClick={indexDemo}
-            disabled={busy === "index"}
+            disabled={busy === "index"} aria-busy={busy === "index"}
             className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white disabled:opacity-50 dark:bg-white dark:text-black"
           >
             {busy === "index" ? "Indexing…" : "Try a demo repo"}
           </button>
-          <span className="text-sm text-zinc-400">or upload a .zip of your repo:</span>
-          <input type="file" accept=".zip" onChange={indexZip} disabled={busy === "index"} className="text-xs" />
+          <span className="text-sm text-zinc-500">or upload a .zip of your repo:</span>
+          <input type="file" accept=".zip" onChange={indexZip} disabled={busy === "index"} aria-busy={busy === "index"} className="text-xs" />
         </div>
         {indexed && (
           <p className="mt-3 text-sm text-emerald-600">
@@ -98,7 +98,7 @@ export default function Home() {
         )}
       </section>
 
-      {error && <p className="mt-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
+      {error && <p role="alert" aria-live="assertive" className="mt-4 rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>}
 
       {indexed && (
         <section className="mt-8">
@@ -109,11 +109,11 @@ export default function Home() {
               onChange={(e) => setQuestion(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && ask()}
               className="flex-1 rounded-md border border-zinc-300 px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900"
-              placeholder="how does X work? where is Y handled?"
+              aria-label="how does X work? where is Y handled?" placeholder="how does X work? where is Y handled?"
             />
-            <button
+            <button type="button"
               onClick={ask}
-              disabled={busy === "ask"}
+              disabled={busy === "ask"} aria-busy={busy === "ask"}
               className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white disabled:opacity-50 dark:bg-white dark:text-black"
             >
               {busy === "ask" ? "…" : "Ask"}
@@ -130,7 +130,7 @@ export default function Home() {
               <div className="whitespace-pre-wrap">{result.answer}</div>
             </div>
           ) : (
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-zinc-500">
               Retrieval-only (no LLM key set). Showing the most relevant code — set <code>ANTHROPIC_API_KEY</code> for a
               written answer.
             </p>
