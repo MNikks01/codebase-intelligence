@@ -6,7 +6,7 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   // Engine + demo use pragmatic `any` for code-shape walking; allow it.
-  { rules: { "@typescript-eslint/no-explicit-any": "off" } },
+  { rules: { "@typescript-eslint/no-explicit-any": "error" } },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

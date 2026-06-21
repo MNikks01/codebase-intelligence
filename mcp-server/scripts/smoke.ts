@@ -11,7 +11,14 @@ const serverEntry = resolve(here, "../src/server.ts");
 const child = spawn("node", [serverEntry], { stdio: ["pipe", "pipe", "inherit"] });
 
 let buf = "";
-const pending = new Map<number, (m: any) => void>();
+interface RpcMessage {
+  jsonrpc?: string;
+  id?: number;
+  method?: string;
+  params?: unknown;
+  result?: { serverInfo?: { name?: string }; tools?: { name: string }[]; content?: { type: string; text: string }[]; [k: string]: unknown };
+}
+const pending = new Map<number, (m: RpcMessage) => void>();
 child.stdout.on("data", (chunk) => {
   buf += chunk.toString();
   let nl: number;
@@ -19,14 +26,14 @@ child.stdout.on("data", (chunk) => {
     const line = buf.slice(0, nl).trim();
     buf = buf.slice(nl + 1);
     if (!line) continue;
-    let msg: any;
-    try { msg = JSON.parse(line); } catch { continue; }
+    let msg: RpcMessage;
+    try { msg = JSON.parse(line) as RpcMessage; } catch { continue; }
     if (msg.id && pending.has(msg.id)) { pending.get(msg.id)!(msg); pending.delete(msg.id); }
   }
 });
-const send = (o: any) => child.stdin.write(JSON.stringify(o) + "\n");
-const request = (id: number, method: string, params?: any) =>
-  new Promise<any>((res) => { pending.set(id, res); send({ jsonrpc: "2.0", id, method, params }); });
+const send = (o: unknown) => child.stdin.write(JSON.stringify(o) + "\n");
+const request = (id: number, method: string, params?: unknown) =>
+  new Promise<RpcMessage>((res) => { pending.set(id, res); send({ jsonrpc: "2.0", id, method, params }); });
 
 function assert(cond: boolean, label: string) {
   if (!cond) { console.error(`✗ ${label}`); child.kill(); process.exit(1); }
@@ -42,7 +49,7 @@ assert(init.result?.serverInfo?.name === "codebase-intel", `initialize -> ${init
 send({ jsonrpc: "2.0", method: "notifications/initialized" });
 
 const tools = (await request(2, "tools/list", {})).result?.tools ?? [];
-const names = tools.map((t: any) => t.name);
+const names = tools.map((t) => t.name);
 assert(["search_code", "ask_codebase", "get_related_files"].every((n) => names.includes(n)), `tools/list -> ${names.join(", ")}`);
 
 const sc = await request(3, "tools/call", { name: "search_code", arguments: { query: "BM25 lexical retrieval", k: 3 } });
