@@ -2,6 +2,9 @@
 // and check the answers cite the right files. No browser, no keys.
 import { readFile } from "node:fs/promises";
 const BASE = process.env.BASE || "http://localhost:3950";
+const __h = await fetch(BASE + "/api/health").then((r) => r.json()).catch(() => ({}));
+if (__h.status !== "ok") throw new Error("health check failed");
+console.log("\u2713 /api/health -> ok");
 
 async function ask(indexId, question) {
   const r = await fetch(BASE + "/api/ask", {
