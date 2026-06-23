@@ -1,5 +1,14 @@
 # Codebase Intelligence Platform
 
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
+[![Free & Open Source](https://img.shields.io/badge/Free%20%26%20Open%20Source-%E2%9C%93-brightgreen.svg)](#-free--open-source)
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%99%A5-ff69b4.svg)](https://github.com/sponsors/MNikks01)
+
+> 💚 **Free & open source, forever.** Every feature is available to everyone — no paywalls, no tiers, no sign-up. Clone and self-host it, or use the hosted app. Licensed under Apache-2.0. If it helps you, [sponsoring](https://github.com/sponsors/MNikks01) is welcome but always optional.
+
+**▶ Try it / deploy your own:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMNikks01%2Fcodebase-intelligence&root-directory=web&project-name=codebase-intelligence) · see [DEPLOY.md](./DEPLOY.md) for CLI & self-hosting.
+
+
 > **Deep, queryable understanding of any codebase.** Ask questions, get grounded answers with citations; auto-generated living docs; impact/blast-radius analysis; onboarding acceleration — exposed as an API and an MCP server so any tool or agent can use it.
 
 **Project #2 (Core engine)** · Priority ⭐⭐⭐ · Difficulty: High · Time-to-MVP: 2–3 months
