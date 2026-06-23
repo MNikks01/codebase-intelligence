@@ -1,15 +1,34 @@
 {
-  "name": "codebase-intel-engine",
+  "name": "@mnikks01/codeintel",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "description": "Codebase Intelligence (#2) engine — RAG over code. Ingest -> chunk -> embed -> hybrid retrieve (vector + lexical) -> grounded Q&A with citations. Runs on Node native TypeScript; zero-network by default (local embeddings), real embedding/LLM APIs swappable.",
-  "bin": { "codeintel": "src/cli.ts" },
+  "bin": {
+    "codeintel": "src/cli.ts"
+  },
   "scripts": {
     "cli": "node src/cli.ts",
     "demo": "node scripts/demo.ts",
     "test": "node --test test/*.test.ts",
     "eval": "node scripts/eval.ts"
   },
-  "engines": { "node": ">=22.18" }
+  "engines": {
+    "node": ">=23.6"
+  },
+  "license": "Apache-2.0",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MNikks01/codebase-intelligence.git",
+    "directory": "engine"
+  },
+  "homepage": "https://github.com/MNikks01/codebase-intelligence#readme",
+  "bugs": "https://github.com/MNikks01/codebase-intelligence/issues",
+  "publishConfig": {
+    "access": "public"
+  }
 }
