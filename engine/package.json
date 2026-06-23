@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Codebase Intelligence (#2) engine — RAG over code. Ingest -> chunk -> embed -> hybrid retrieve (vector + lexical) -> grounded Q&A with citations. Runs on Node native TypeScript; zero-network by default (local embeddings), real embedding/LLM APIs swappable.",
+  "bin": { "codeintel": "src/cli.ts" },
   "scripts": {
+    "cli": "node src/cli.ts",
     "demo": "node scripts/demo.ts",
     "test": "node --test test/*.test.ts",
     "eval": "node scripts/eval.ts"

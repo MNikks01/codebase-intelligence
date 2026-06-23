@@ -8,6 +8,13 @@
 
 **▶ Try it / deploy your own:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMNikks01%2Fcodebase-intelligence&root-directory=web&project-name=codebase-intelligence) · see [DEPLOY.md](./DEPLOY.md) for CLI & self-hosting.
 
+**🖥️ CLI:** index any repo and ask questions with citations (zero-network; `ANTHROPIC_API_KEY` optional for prose answers):
+```bash
+node engine/src/cli.ts search ./src "where is auth handled?"
+node engine/src/cli.ts ask ./ "how does retrieval fuse vector and lexical hits?"
+node engine/src/cli.ts related ./ src/index.ts
+```
+
 
 > **Deep, queryable understanding of any codebase.** Ask questions, get grounded answers with citations; auto-generated living docs; impact/blast-radius analysis; onboarding acceleration — exposed as an API and an MCP server so any tool or agent can use it.
 
