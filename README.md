@@ -8,12 +8,14 @@
 
 **▶ Try it / deploy your own:** [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMNikks01%2Fcodebase-intelligence&root-directory=web&project-name=codebase-intelligence) · see [DEPLOY.md](./DEPLOY.md) for CLI & self-hosting.
 
-**🖥️ CLI:** index any repo and ask questions with citations (zero-network; `ANTHROPIC_API_KEY` optional for prose answers):
+**🖥️ CLI:** index any repo and ask questions with citations (zero-network; ANTHROPIC_API_KEY optional) — published on npm (needs Node ≥23.6):
 ```bash
-node engine/src/cli.ts search ./src "where is auth handled?"
-node engine/src/cli.ts ask ./ "how does retrieval fuse vector and lexical hits?"
-node engine/src/cli.ts related ./ src/index.ts
+npm i -g @mnikks01/codeintel    # installs the `codeintel` command — or use npx (no install) below
+npx @mnikks01/codeintel search ./src "where is auth handled?"
+npx @mnikks01/codeintel ask ./ "how does retrieval fuse vector and lexical hits?"
+npx @mnikks01/codeintel related ./ src/index.ts
 ```
+From a clone instead: `node engine/src/cli.ts <args>`.
 
 
 > **Deep, queryable understanding of any codebase.** Ask questions, get grounded answers with citations; auto-generated living docs; impact/blast-radius analysis; onboarding acceleration — exposed as an API and an MCP server so any tool or agent can use it.

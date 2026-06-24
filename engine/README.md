@@ -1,5 +1,17 @@
 # Codebase Intelligence — engine (Phase A) ✅
 
+## Install & CLI
+
+index any repo and ask questions with citations (zero-network; ANTHROPIC_API_KEY optional). Requires Node ≥23.6 (runs on Node's native TypeScript).
+
+```bash
+npm i -g @mnikks01/codeintel    # then run `codeintel …`, or use npx without installing:
+npx @mnikks01/codeintel search ./src "where is auth handled?"
+npx @mnikks01/codeintel ask ./ "how does retrieval fuse vector and lexical hits?"
+npx @mnikks01/codeintel related ./ src/index.ts
+```
+
+
 The RAG-over-code engine for project #2: **ingest a repo → chunk → embed → hybrid retrieve (vector + lexical) → grounded Q&A with citations.** This is the "technical center of gravity" reused by ContextOS (#1). Pure TypeScript, runs on **Node 24 native TS**, **zero-network by default** (real embedding/LLM APIs swap in for production).
 
 ## Status: Phase A built + evaluated (2026-06-20)
