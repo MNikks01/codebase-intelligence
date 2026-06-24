@@ -1,6 +1,6 @@
 {
   "name": "@mnikks01/codeintel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Codebase Intelligence (#2) engine — RAG over code. Ingest -> chunk -> embed -> hybrid retrieve (vector + lexical) -> grounded Q&A with citations. Runs on Node native TypeScript; zero-network by default (local embeddings), real embedding/LLM APIs swappable.",
   "bin": {
