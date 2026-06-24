@@ -2,7 +2,7 @@
 
 ## Install & CLI
 
-index any repo and ask questions with citations (zero-network; ANTHROPIC_API_KEY optional). Requires Node ≥23.6 (runs on Node's native TypeScript).
+index any repo and ask questions with citations (zero-network; ANTHROPIC_API_KEY optional). Requires Node ≥18.
 
 ```bash
 npm i -g @mnikks01/codeintel    # then run `codeintel …`, or use npx without installing:

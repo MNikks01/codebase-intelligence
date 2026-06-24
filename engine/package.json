@@ -1,22 +1,25 @@
 {
   "name": "@mnikks01/codeintel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Codebase Intelligence (#2) engine — RAG over code. Ingest -> chunk -> embed -> hybrid retrieve (vector + lexical) -> grounded Q&A with citations. Runs on Node native TypeScript; zero-network by default (local embeddings), real embedding/LLM APIs swappable.",
   "bin": {
-    "codeintel": "src/cli.ts"
+    "codeintel": "dist/cli.js"
   },
   "scripts": {
     "cli": "node src/cli.ts",
     "demo": "node scripts/demo.ts",
     "test": "node --test test/*.test.ts",
-    "eval": "node scripts/eval.ts"
+    "eval": "node scripts/eval.ts",
+    "build": "npx --yes esbuild@0.24.2 src/cli.ts --bundle --platform=node --format=esm --target=node18 --packages=external --outfile=dist/cli.js",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
-    "node": ">=23.6"
+    "node": ">=18"
   },
   "license": "Apache-2.0",
   "files": [
+    "dist",
     "src",
     "README.md",
     "LICENSE"
